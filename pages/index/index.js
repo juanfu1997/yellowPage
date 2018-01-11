@@ -15,9 +15,9 @@ Page({
   			]
   
   },
-  swiperChange(e){
-  	console.log(e)
-  },
+  // swiperChange(e){
+  // 	console.log(e)
+  // },
 
 
   /**
