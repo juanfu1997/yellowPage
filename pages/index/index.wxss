@@ -1,4 +1,3 @@
-/* pages/index/index.wxss */
 page{
 	width: 100%;
 	height: 100%;
@@ -6,99 +5,40 @@ page{
 .page{
 	width: 100%;
 	height: 100%;
-	background: url('https://www.korjo.cn/xcx/yellowPageImg/bg.jpg') center center fixed no-repeat;
+	background: url('https://www.korjo.cn/xcx/yellowPageImg/index_bg.jpg') center center fixed no-repeat ;
 	background-size: cover;
-	/*background-color: red;*/
 }
-.page2{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-}
-.Tips{
-	/*position: relative;*/
-	width: 100%;
-	height: 20%;
-	text-align: center;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	flex-shrink: 1;
-	align-items: center;
-	font-size: 36rpx;
-	line-height: 60rpx;
-	color: #7f0d26;
-}
-/*.Tips text{
-
-}*/
-.choicedGround{
-	width: 100%;
-	height: 38%;
-	display: flex;
-	flex-grow: 1;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	text-align: center;
-}
-.swiper-item{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-around;
-	align-items: center;
-}
-.ground{
-	/*flex-shrink: 1;*/
-	width: 40%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.ground_img{
-	width: 80%;
-}
-.ground_name{
-	width: 80%;
-}
-.detail{
-	/*position: absolute;
-	left: 0;
-	bottom: 20%;*/
-	width: 100%;
-	height: 20%;
-	flex-shrink: 1;
-	margin: 0 auto;
-	text-align: center;
-	font-size: 24rpx;
-	color: #000;
-	/*display:flex;
-	justify-content: center;*/
-
-}
-/*.text{
-	
-
-}*/
-.creatGround{
+.btn_click{
 	position: absolute;
-	right: 3%;
-	top: 10%;
-	width: 100rpx;
-	height: 100rpx;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: column;
-	color: #7f0d26;
+	left: 50%;
+	bottom: 8%;
+	transform: translateX(-50%);
+	padding: 10rpx 25rpx;
+	background: red;
+	text-align: center;
+	width: 25%;
+	border-radius: 10rpx;
+	border:2rpx solid #7f0d27;
+	background: rgba(204,204,204,0.5);
 }
-.creatGround image{
-	width: 80%;
+.logo_box{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 15%;
+	text-align: center;
+	/*background-color: red; */
 }
-.btn_creat{
-	font-size: 16rpx;
+.logo{
+	width: 30%;
+}
+.title{
+	color: #7f0d27;
+	font-size: 60rpx;
+	font-weight: bold;
+	margin: 20rpx 0;
+}
+.slogan{
+	color: #7f0d27;
+	font-size: 50rpx;
 }

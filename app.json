@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/choice_ground/choice_ground",
     "pages/logs/logs"
   ],
   "window":{
