@@ -1,0 +1,16 @@
+<view class="page">
+	<view class="class_list">
+		<view class="btn_class" wx:for="{{class_data}}" data-index="{{index+1}}" bindtap="get_class">
+			<image class="class_img" mode="widthFix" src="{{img}}class_{{index+1}}.png"></image>
+			<view class="class_name">{{item.name}}</view>
+		</view>
+	</view>
+	<view class="ground_switch">
+		<view class="btn_logo">
+			<image class="logo" mode="widthFix" src="{{img}}ground_logo.png"></image>
+			<image class="switch" mode="widthFix" src="{{img}}ground_switch.png"></image>
+		</view>
+		<view class="ground_name">新新家园</view>
+	</view>
+	<image class="add_tel" mode="widthFix" src="{{img}}add_tel.png"></image>
+</view>

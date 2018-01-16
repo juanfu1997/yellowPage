@@ -2,6 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/choice_ground/choice_ground",
+    "pages/class/class",
+    "pages/add_tel/add_tel",
+    "pages/tel_list/tel_list",
     "pages/logs/logs"
   ],
   "window":{
