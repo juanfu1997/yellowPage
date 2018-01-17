@@ -189,6 +189,38 @@ function goPage(e) {
         url: `/pages/${data.page}/${data.page}`
     })
 }
+//上传资源获得其链接 资源类型:image audio movie
+function adminUpload(tempUrl, typeOfUpload, callbackWhenSuccess, callbackWhenFail) {
+    console.log(typeOfUpload+": "+tempUrl);
+    wx.uploadFile({
+        url: 'https://korjo.fans-me.com/KorjoApi/AdminUpload',
+        filePath: tempUrl,
+        name: 'myPostcardPics',
+        method: 'POST',
+        formData: {
+            'path': 'korjo',
+            'type': typeOfUpload,
+        },
+        header: {
+            'content-type': 'multipart/form-data'
+        },
+        success: function (res) {
+            callbackWhenSuccess(res);
+        },
+        fail: function (res) {
+            callbackWhenFail(res);
+        },
+        complete(res) {
+            console.log(res);
+        }
+    })
+}
+function take_call(number){
+    wx.makePhoneCall({
+      phoneNumber: number //仅为示例，并非真实的电话号码
+    })
+  }
+
 module.exports = {
     server: 'https://korjo.fans-me.com/',
     get: function (url, data, callback) {
@@ -217,5 +249,7 @@ module.exports = {
     formatTime,
     url2abs,
     param,
-    goPage
+    goPage,
+    adminUpload,
+    take_call
 }

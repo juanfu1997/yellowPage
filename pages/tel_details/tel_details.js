@@ -1,4 +1,4 @@
-// pages/add_tel/add_tel.js
+const $ = require('../../utils/common.js')
 Page({
 
   /**
@@ -6,6 +6,9 @@ Page({
    */
   data: {
   
+  },
+  take_call(e){
+    $.take_call(number)
   },
 
   /**

@@ -36,6 +36,12 @@
 					"query": ""
 				},
 				{
+					"id": 2,
+					"name": "sell",
+					"pathName": "pages/add_sell/add_sell",
+					"query": ""
+				},
+				{
 					"id": -1,
 					"name": "tel",
 					"pathName": "pages/tel_list/tel_list",
@@ -43,8 +49,8 @@
 				},
 				{
 					"id": -1,
-					"name": "tel",
-					"pathName": "pages/tel_list/tel_list",
+					"name": "tel_details",
+					"pathName": "pages/tel_details/tel_details",
 					"query": ""
 				}
 			]

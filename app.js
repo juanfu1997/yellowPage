@@ -1,5 +1,10 @@
 //app.js
 App({
+  globalData: {
+    // img:'http://p.m.fans-me.com/VegaImg/'
+    img:'/images/',
+    userInfo:null,
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -32,8 +37,6 @@ App({
         }
       }
     })
-  },
-  globalData: {
-    userInfo: null
   }
+  
 })

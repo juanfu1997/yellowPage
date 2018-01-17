@@ -1,53 +1,34 @@
 <view class="page">
-	<view class="top_title">
-		<view class="add_tel">添加商家电话</view>
+	<view class="top_title" wx:if="{{class}}">
+		<view class="add_tel">热线电话</view>
 	</view>
-	<view class="content">
+	<view class="top_class" wx:if="{{!class}}">
 
-		<!-- <view class="btn_class">
-			<view class="class_name">分类*:</view>
-			<picker mode="selector" class="class_list1" range="{{class_list1}}" value="{{index}}" >{{list1_menu}}
-				<image class="{{arrow}}" mode="widthFix" src="{{img}}arrow.png"></image>
-			</picker>
-			<picker mode="selector" class="class_list1" range="{{class_list1}}" value="{{index}}" >{{list1_menu}}
-				<image class="{{arrow}}" mode="widthFix" src="{{img}}arrow.png"></image>
-			</picker>
-		</view> -->
+		<image style="width: 5%;transform: rotate(180deg);" mode="widthFix" src="{{img}}arrow2.png"></image>
+	<scroll-view class="class_name" style="width: 200px; height: 100%;display: flex;flex-flow: row nowrap" scroll-x  >
 
-		<view class="btn_class {{index==2?'btn_add_tel':''}}" wx:for="{{add_list}}">
-			<!-- <view class="class_name " wx:if="{{index==0}}">分类*:</view> -->
-			
-
-			<view class="class_name" >{{item}}</view>
-
-			<picker mode="selector" class="class_list1" range="{{class_list1}}" value="{{index1}}" wx:if="{{index==0}}" data-type="1" bindchange="getPickerValue">{{list1_menu}}
-				<image class="{{arrow}}" mode="widthFix" src="{{img}}arrow.png"></image>
-			</picker>
-			<picker mode="selector" class="class_list1" range="{{class_list2}}" value="{{index2}}" wx:if="{{index==0}}" data-type="2" bindchange="getPickerValue">{{list2_menu}}
-				<image class="{{arrow}}" mode="widthFix" src="{{img}}arrow.png"></image>
-			</picker>
-
-			<input value=""   data-index="{{index}}" bindblur="saveInput" wx:if="{{index!=0}}" placeholder="{{index==2?'电话请以“/”隔开,最多5个':''}}" placeholder-style="font-size:28rpx;" style="max-width: 100%;flex-shrink: 1;text-align: center;" />
-			<!-- <image class="btn_add" wx:if="{{index==2}}" mode="widthFix" bindtap="btn_add" src="{{img}}btn_add.png"></image> -->
-		</view>
-		<view class="img" wx:for="{{img_list}}">
-			<view class="class_name" >{{item.name}}</view>
-			<view class="media_box">
-					<image class="img_show"  mode="widthFix" wx:for="{{store_img}}" wx:for-index="index2" wx:for-item="item2" wx:if="{{item2 && index==0}}" src="{{item2}}"  data-type="{{index}}" data-index="{{index2}}" catchlongpress="del_media" catchtap="preview"></image>
-					<!-- <image class="delete" hidden="{{delete}}" mode="widthFix" src="{{img}}delete.png"></image> -->
-				<video class="" style="width: 100%;height: 124rpx; position: relative;" wx:for="{{store_video}}" wx:for-index="index3" wx:for-item="item3" wx:if="{{item3 && index==1}}" data-type="{{index}}" catchlongpress="del_media">
-					<!-- <video class="" style="width: 100%;height: 124rpx;"></video> -->
-					
-				</video>
-
-			
-				<image class="img_show" mode="widthFix" wx:if="{{(index==0 && hid_img) || (index==1 &&hid_video)}}"  src="{{img}}{{item.img}}.png" data-type="{{index}}" bindtap="uploadMedia"></image>
-				<!-- <video class="" mode="widthFix" style="width: 100rpx;" src="{{src}}"></video> -->
+		<!-- <view style="min-width: 200%;height: 100%;"> -->
+			<view class="" wx:for="{{class_ground}}" style="width: 300px;height: 100%;  {{index==1?'border-left: 2rpx solid #ccc;border-right: 2rpx solid #ccc;':''}}">{{item.name}}</view>
+		<!-- </view> -->
+	</scroll-view>
+		<image style="width: 5%;" mode="widthFix" src="{{img}}arrow2.png"></image>
+	</view>
+	<!-- <scroll-view class="tel_list">
+		<view class="btn_tel">
+			<image class="call_icon" mode="widthFix" src="{{img}}call.png" catchtap="take_call"></image>
+			<view class="tel_title">
+				<view class="tel_name">
+					<view calss="title">111</view>
+					<image class="details_icon" mode="widthFix" src="{{img}}arrow2.png"></image>
+				</view>
+				<view class="tel_num">11</view>
 			</view>
 		</view>
-		<view class="submit">
-			<image class="submit_img" style="width: 50rpx;" mode="widthFix" src="{{img}}btn_add.png"></image>
-			<image class="submit_img" style="width: 70rpx;" mode="widthFix" src="{{img}}btn_ok.png" bindtap="submit"></image>
-		</view>
+	</scroll-view> -->
+	<view class="foot_logo">
+		<!-- <view class="btn_logo"> -->
+			<image class="logo" mode="widthFix" src="{{img}}ground_logo.png"></image>
+			<view class="ground_name">新新家园</view>
+		<!-- </view> -->
 	</view>
 </view>
