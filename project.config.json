@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
@@ -30,10 +30,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "class",
 					"pathName": "pages/class/class",
-					"query": ""
+					"query": "userid=390"
 				},
 				{
 					"id": 2,

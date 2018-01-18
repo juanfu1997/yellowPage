@@ -2,4 +2,20 @@
 	<view class="top_title">
 		<view class="add_tel">新新家园社区服务</view>
 	</view>
+	<view class="details_list">
+		<view class="btn_details">
+			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
+			<view class="details_text">新新家园社区服务</view>
+		</view>
+	</view>
+	<view class="tab_store">
+		<view class="top_tab">
+			<viwe class="tab">门店介绍</viwe>
+			<view class="tab">门店图片</view>
+			<view class="tab">门店视频</view>
+		</view>
+		<view class="store_details">555555555555555555555555555555555555555555</view>
+		<view class="store_details"></view>
+		<view class="store_details"></view>
+	</view>
 </view>

@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img:'/images/',
+    img: getApp().globalData.img,
     class_list1:['美国', '中国', '巴西', '日本'],
     class_list2:['美国', '中国', '巴西', '日本'],
     open_time:{open:null,close:null,start:'09:01',end:'12:01'},

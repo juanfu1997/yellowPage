@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  	img:'/images/',
+  	img: getApp().globalData.img,
   	ground:[
   			{img:'calender.png',name:'小伙伴1'},
   			{img:'calender.png',name:'小伙伴2'},

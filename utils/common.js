@@ -221,6 +221,49 @@ function take_call(number){
     })
   }
 
+function req(url,type,dataJson,callback){
+    if(type=='POST'){
+        dataJson = JSON.stringify(dataJson)
+        wx.request({
+          url: url, //仅为示例，并非真实的接口地址
+          data: {
+             dataJson: dataJson ,
+             y: ''
+          },
+          method:type,
+          header: {
+              'content-type': 'application/x-www-form-urlencoded' // 默认值
+          },
+          success: function(res) {
+            if(callback){
+            callback(res)
+            }
+            console.log(res.data)
+          }
+        })
+    }else{
+        wx.request({
+          url: url, //仅为示例，并非真实的接口地址
+          data: {
+             userid: dataJson ,
+             y: ''
+          },
+          method:type,
+          header: {
+              'content-type': 'application/x-www-form-urlencoded' // 默认值
+          },
+          success: function(res) {
+            if(callback){
+            callback(res)
+            }
+            console.log(res.data)
+          }
+        })
+    }
+}
+
+
+
 module.exports = {
     server: 'https://korjo.fans-me.com/',
     get: function (url, data, callback) {
@@ -251,5 +294,6 @@ module.exports = {
     param,
     goPage,
     adminUpload,
-    take_call
+    take_call,
+    req
 }

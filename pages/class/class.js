@@ -1,11 +1,13 @@
 // pages/class/class.js
+const $ = require('../../utils/common.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img:'/images/',
+    img: getApp().globalData.img,
     class_data:[
                 {name:'热线电话',img:'1'},
                 {name:'保安电话',img:'2'},
@@ -36,7 +38,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    var url = 'https://www.korjo.cn/TimeApi/GetYellowUserTypeList?userid=390&parentid=0'
+    var type = 'GET'
+    var dataJson = {userid:'390',parentid:'0',}
+    $.req(url,type,null,function(res){
+      console.log(res)
+    },)
+      console.log(options)
    },
 
   /**

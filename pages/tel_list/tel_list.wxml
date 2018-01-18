@@ -4,16 +4,16 @@
 	</view>
 	<view class="top_class" wx:if="{{!class}}">
 
-		<image style="width: 5%;transform: rotate(180deg);" mode="widthFix" src="{{img}}arrow2.png"></image>
-	<scroll-view class="class_name" style="width: 200px; height: 100%;display: flex;flex-flow: row nowrap" scroll-x  >
-
-		<!-- <view style="min-width: 200%;height: 100%;"> -->
-			<view class="" wx:for="{{class_ground}}" style="width: 300px;height: 100%;  {{index==1?'border-left: 2rpx solid #ccc;border-right: 2rpx solid #ccc;':''}}">{{item.name}}</view>
-		<!-- </view> -->
-	</scroll-view>
-		<image style="width: 5%;" mode="widthFix" src="{{img}}arrow2.png"></image>
+		<image style="width: 5%;transform: rotate(180deg);flex-grow: 0;" mode="widthFix" src="{{img}}{{arrow1}}.png"></image>
+	<scroll-view class="scroll_x" scroll-x style="">
+		<view style="width: 100%;height: 100%;text-align: center;line-height: 2.8em;">
+    		<view class="class_name" wx:for="{{class_ground}}" style="">111</view>
+   
+		</view>
+  </scroll-view>
+		<image style="width: 5%;flex-grow: 0;" mode="widthFix" src="{{img}}{{arrow2}}.png"></image>
 	</view>
-	<!-- <scroll-view class="tel_list">
+	<scroll-view class="tel_list">
 		<view class="btn_tel">
 			<image class="call_icon" mode="widthFix" src="{{img}}call.png" catchtap="take_call"></image>
 			<view class="tel_title">
@@ -24,7 +24,7 @@
 				<view class="tel_num">11</view>
 			</view>
 		</view>
-	</scroll-view> -->
+	</scroll-view>
 	<view class="foot_logo">
 		<!-- <view class="btn_logo"> -->
 			<image class="logo" mode="widthFix" src="{{img}}ground_logo.png"></image>

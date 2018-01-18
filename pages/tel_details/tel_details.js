@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    img: getApp().globalData.img,
   },
   take_call(e){
     $.take_call(number)

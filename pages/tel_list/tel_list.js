@@ -15,6 +15,8 @@ Page({
                   {name:'4',data:''},
                   {name:'5',data:''},
     ],
+    arrow1:'arrow2',
+    arrow2:'arrow2',
     
 
   },

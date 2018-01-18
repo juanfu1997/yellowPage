@@ -17,6 +17,8 @@ page{
 	justify-content: space-between;
 }
 .btn_info{
+	width: 100%;
+	height:100%;
 	position: absolute;
 	left: 0;
 	top:0;
@@ -126,7 +128,7 @@ page{
 	color:#7f0d26;
 	background-color: #ffffff;
 	font-size: 30rpx;
-
+	z-index: 3;
 }
 .info_border{
 	position: absolute;
@@ -134,17 +136,15 @@ page{
 	top:50%;
 	transform: translateX(-50%) translateY(-50%);
 	width: 80%;
-	z-index: 1;
 }
 .info{
-	z-index: 3;
 	width: 80%;
+	margin: 0 auto;
 	margin-top: 80rpx;
 }
 .creat{
 	margin: 80rpx auto;
 	margin-bottom:60rpx; 
-	z-index: 3;
 	width: 50%;
 
 }

@@ -34,7 +34,7 @@ page{
 	position: absolute;
 	left: 0;
 	top: 0;
-	z-index: 1;
+	/*z-index: 1;*/
 }
 .top_title{
 	width: 100%;
@@ -53,16 +53,4 @@ page{
 	border-bottom: 20rpx solid transparent;
 	border-left: 20rpx solid transparent;
 	border-right: 20rpx solid transparent;
-}
-.add_tel{
-	position: absolute;
-	left: 10%;
-	top: 50%;
-	transform: translateY(-50%);
-	font-size: 40rpx;
-}
-.tel_list{
-	width: 100%;
-	min-height: 10%;
-	flex-grow: 1;
 }

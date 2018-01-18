@@ -124,9 +124,19 @@ page{
 	align-items: center;
 }
 .class_name{
-	min-width: 300rpx;
 	height: 100%;
-	flex-grow: 1;
-	background-color: red;
+	width: 33.3%;
+	display: inline-block;
+	border-left: 2rpx solid #ccc;
+	border-right: 2rpx solid #ccc;
 }
-
+.class_name:last-child, .class_name:first-child{
+	border:transparent;
+}
+.scroll_x{
+	width: 80%; 
+	height: 100%; 
+	white-space:nowrap; 
+	display: block;
+	flex-grow: 1;
+}
