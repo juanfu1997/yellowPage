@@ -9,14 +9,40 @@ page{
 	background-size: cover;
 	/*background-color: red;*/
 }
-.class_list{
+.flex{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+.top_title{
+	background-color: transparent;
+}
+.top_title:after{
+	content: '';
+	border-top:0rpx;
+}
+/*.class_list{
 	position: absolute;
 	left: 50%;
 	top: 10%;
 	transform: translateX(-50%);
 	width: 70%;
 	height: 70%;
-	/*background: red;*/
+	background: red;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+
+}*/
+.class_list{
+	width: 70%;
+	/*min-height: 10%;*/
+	max-height: 70%;
+	flex-grow: 1;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
@@ -45,24 +71,48 @@ page{
 	text-align: center;
 	color: #7f0d26;
 }
-.add_tel{
+/*.add_tel{
 	width: 15%;
 	position: absolute;
 	right: 20rpx;
 	bottom: 5%;
-}
-.ground_switch{
+}*/
+/*.ground_switch{
 	position: absolute;
 	left: 10%;
 	bottom: 2%;
 	width: 10%;
+}*/
+.add_tel{
+	width: 15%;
+	margin-right: 5%;
+	flex-grow: 0;
+	align-self: flex-end;
+}
+.ground_switch{
+	flex-grow: 0;
+	display: flex;
+	/*width: 300rpx;*/
+	margin-left: 10%;
+	align-self: flex-start;
+	justify-content: flex-start;
+	align-items: flex-end;
+	position: relative;
+	/*height: */
+}
+.ground_list{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform:translateX(-50%) translateY(-105%);
+	border-radius: 20rpx;
+	padding: 10rpx 10rpx;
 }
 .btn_logo{
-	width: 100%;
 	position: relative;
 }
 .logo{
-	width: 100%;
+	width: 60rpx;
 }
 .switch{
 	position: absolute;
@@ -71,11 +121,12 @@ page{
 	width: 30%;
 }
 .ground_name{
-	position: absolute;
-	right: 0;
-	bottom: 0;
+	
 	width: 180rpx;
 	text-align: center;
 	color: #5b5757;
-	transform: translateX(100%);
+}
+.btn_ground{
+	display: flex;
+	align-items: center; 
 }

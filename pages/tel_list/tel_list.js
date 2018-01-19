@@ -8,28 +8,111 @@ Page({
   data: {
     img: getApp().globalData.img,
     class:false,
+    details:false,
     class_ground:[
-                  {name:'1',data:''},
-                  {name:'2',data:''},
-                  {name:'3',data:''},
-                  {name:'4',data:''},
-                  {name:'5',data:''},
+                  {yellow_type:'1',userid:'390',parentid:'17',id:'103',image:'',data:''},
     ],
+    tel_list:[{"typeid":103,"business_name":"真功夫","phone":"400-692-7927","address":"","email":"","intro":"","hours":"","image":"","video":"","yellow_type":null,"wxpublic":"","customjson":"","id":51,"sort":0,"status":0,"addtime":"2018-01-18T14:31:37"},],
+    tel_details:[{"typeid":103,"business_name":"吉野家","phone":"400-819-7197","address":"","email":"","intro":"","hours":"","image":"","video":"","yellow_type":null,"wxpublic":"","customjson":"","id":50,"sort":0,"status":0,"addtime":"2018-01-18T14:30:15"},],
+    son_ground:[],
     arrow1:'arrow2',
     arrow2:'arrow2',
     
 
   },
   take_call(e){
-    console.log('11')
-    $.take_call('123')
+    var that = this
+    var number = e.currentTarget.dataset.number
+    var b = number.split(/\/+/)
+      console.log(b,number)
+    if(b.length > 1){
+      wx.showActionSheet({
+        itemList: b,
+        success: function(res) {
+          $.take_call(b[res.tapIndex])
+          // console.log(res.tapIndex)
+        }
+      })
+    }else if(b.length ==1){
+      $.take_call('123')
+
+    }else{
+      $.alert('获取号码错误')
+    }
+    // console.log('11',e)
   },
-  
+  get_details(e){
+    var that = this
+    var index = e.currentTarget.dataset.index
+    var tel_details = that.data.tel_details
+    var tel_list = that.data.tel_list
+
+    tel_details = tel_list[index]
+
+    if(tel_details.wxpublic){
+      var wechat = ''
+
+      // tel_details.wxpublic.split(/\//)
+    }
+    var a = 'a/a/a'
+      var b =a.split(/\//)
+      console.log('a.split',b)
+    wx.setStorageSync('tel_details', tel_details)
+    $.goPage(e)
+    that.setData({tel_details,details:true})
+    console.log(tel_details)
+  },
+  son_ground(e){
+    var that =this
+    var tel_url = 'https://www.korjo.cn/TimeApi/GetBusinessPhoneListByID'
+          var tel_type = 'GET'
+    var tel_dataJson = {typeid:e}
+          // var aa =[]
+            $.req(tel_url,tel_type,tel_dataJson,function(res){
+              
+            console.log('tel_url1111',res)
+              that.setData({tel_list:res.data})
+            })
+  },
+  query(e){
+    var that = this
+      var url = 'https://www.korjo.cn/TimeApi/GetYellowUserTypeList'
+      var type = 'GET'
+      var dataJson = {userid:e.userid,parentid:e.parentid}
+
+      $.req(url,type,dataJson,function(res){
+        if(res.data.length!=0){
+          that.setData({class:false,class_ground:res.data})
+          
+          var idArray = []
+          
+          $.each(that.data.class_ground,(i,v) => {
+            idArray.push(v.id)
+            console.log('idArray',idArray.length)
+            })
+          that.son_ground(idArray[0])
+          // var tel_dataJson = {typeid:103}
+          // for(var i = 0;i<idArray.length;i++){
+          
+            // console.log('tel_url1111',aa)
+          // }
+
+          }else{
+            that.setData({class:true})
+
+          }
+      })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    if(options){
+      that.query(options)
+    }
+
   },
 
   /**

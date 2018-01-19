@@ -1,11 +1,31 @@
-<view class="page">
+<view class="page" hidden="">
 	<view class="top_title">
-		<view class="add_tel">新新家园社区服务</view>
+		<view class="add_tel">{{tel_details.business_name}}</view>
 	</view>
 	<view class="details_list">
-		<view class="btn_details">
+		<view class="btn_details" data-phone="{{tel_details.phone}}" wx:if="{{tel_details.phone}}"  catchtap="take_call">
 			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
-			<view class="details_text">新新家园社区服务</view>
+			<view class="details_text" >{{tel_details.phone}}</view>
+		</view>
+		<view class="btn_details" wx:if="{{tel_details.address}}">
+			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
+			<view class="details_text">{{tel_details.address}}</view>
+		</view>
+		<view class="btn_details" wx:if="{{tel_details.email}}">
+			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
+			<view class="details_text">{{tel_details.email}}</view>
+		</view>
+		<view class="btn_details" wx:if="{{tel_details.customjson}}">
+			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
+			<view class="details_text">{{tel_details.customjson}}</view>
+		</view>
+		<view class="btn_details" wx:if="{{tel_details.wxpublic}}">
+			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
+			<view class="details_text">{{tel_details.wxpublic}}</view>
+		</view>
+		<view class="btn_details" wx:if="{{tel_details.hours}}">
+			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
+			<view class="details_text">{{tel_details.hours}}</view>
 		</view>
 	</view>
 	<view class="tab_store">

@@ -8,6 +8,8 @@ Page({
    */
   data: {
     img: getApp().globalData.img,
+    korjoImg:getApp().globalData.korjoImg,
+    current_ground:'',
     class_data:[
                 {name:'热线电话',img:'1'},
                 {name:'保安电话',img:'2'},
@@ -22,16 +24,68 @@ Page({
                 {name:'周边学校',img:'11'},
                 {name:'会所',img:'12'},
     ],
+    ground_list:[],
   
   },
-  get_class(e){
+  go_tel_list(e){
     var that = this
-    var index = e.currentTarget.dataset.index
+    var parentid = e.currentTarget.dataset.id
+    var userid = that.data.current_ground.userid
+
+    console.log(userid,parentid)
+    // var parentid = that.class_data[index].id
     wx.navigateTo({
-      url: '/pages/tel_list/tel_list?index='+index
+      url: '/pages/tel_list/tel_list?userid='+userid+'&parentid='+parentid
     })
 
     console.log(e)
+  },
+  get_class(userid){
+    var that = this
+    var class_data = that.data.class_data
+    var url = 'https://www.korjo.cn/TimeApi/GetYellowUserTypeList'
+    var type = 'GET'
+    var dataJson = {userid:userid,parentid:'0',}
+    $.req(url,type,dataJson,function(res){
+      class_data = res.data
+      that.setData({class_data})
+      console.log(class_data)
+    },)
+  },
+  choice_ground(e){
+    var that = this
+    var ground_list = that.data.ground_list
+    var current_ground = that.data.current_ground
+    if(e.currentTarget!=undefined){
+    var index = e.currentTarget.dataset.index
+    
+  }else{
+    var index = e
+    console.log(index)
+
+  }
+    console.log(ground_list)
+     current_ground = ground_list[index]
+
+    console.log(current_ground)
+
+    that.setData({current_ground})
+
+  },
+  get_ground_list(userid,callback){
+    var that = this
+    var ground_list = that.data.ground_list
+    var url = 'https://www.korjo.cn/TimeApi/GetYellowPagesList'
+    var type = 'POST'
+
+    $.req(url,type,null,function(res){
+      ground_list = res.data
+      that.get_class(userid)
+      that.setData({ground_list})
+      callback()
+
+      console.log(ground_list)
+    })
   },
 
   /**
@@ -39,13 +93,15 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    var url = 'https://www.korjo.cn/TimeApi/GetYellowUserTypeList?userid=390&parentid=0'
-    var type = 'GET'
-    var dataJson = {userid:'390',parentid:'0',}
-    $.req(url,type,null,function(res){
-      console.log(res)
-    },)
-      console.log(options)
+    if(options.index){
+      this.get_ground_list(390,function(){
+        that.choice_ground(options.index)
+      // console.log(options)
+      })
+      
+
+    }
+    
    },
 
   /**

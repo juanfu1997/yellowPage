@@ -100,14 +100,14 @@ Page({
     var that = this
     var index = e.currentTarget.dataset.index
     wx.reLaunch({
-      url: '/pages/class/class?userid='+that.data.ground[index].userid
+      url: '/pages/class/class?userid='+that.data.ground[index].userid+'&index='+index
     })
     console.log(e)
   },
   getAllGround(){
     var that = this
     var ground = that.data.ground
-    var type = "GET"
+    var type = "POST"
 
     var url = 'https://www.korjo.cn/TimeApi/GetYellowPagesList'
     $.req(url,type,null,function(res){

@@ -6,8 +6,10 @@ Page({
    */
   data: {
     img: getApp().globalData.img,
+    tel_details:[{"typeid":103,"business_name":"吉野家","phone":"400-819-7197","address":"","email":"","intro":"","hours":"","image":"","video":"","yellow_type":null,"wxpublic":"","customjson":"","id":50,"sort":0,"status":0,"addtime":"2018-01-18T14:30:15"},],
   },
   take_call(e){
+    var number = e.currentTarget.dataset.phone
     $.take_call(number)
   },
 
@@ -15,7 +17,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this
+    var tel_details = that.data.tel_details
+    var get_tel_details = wx.getStorageSync('tel_details')
+    tel_details = get_tel_details
+    that.setData({tel_details})
+  console.log(options)
   },
 
   /**

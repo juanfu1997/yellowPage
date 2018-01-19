@@ -245,18 +245,20 @@ function req(url,type,dataJson,callback){
         wx.request({
           url: url, //仅为示例，并非真实的接口地址
           data: {
-             userid: dataJson ,
-             y: ''
+             userid: dataJson.userid ,
+             parentid: dataJson.parentid,
+             typeid:dataJson.typeid
+
           },
           method:type,
           header: {
               'content-type': 'application/x-www-form-urlencoded' // 默认值
           },
-          success: function(res) {
+          complete: function(res) {
             if(callback){
             callback(res)
             }
-            console.log(res.data)
+            // console.log(res.data)
           }
         })
     }
