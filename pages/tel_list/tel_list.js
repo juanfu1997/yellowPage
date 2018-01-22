@@ -8,6 +8,7 @@ Page({
   data: {
     img: getApp().globalData.img,
     class:false,
+    topTitle:'',
     details:false,
     class_ground:[
                   {yellow_type:'1',userid:'390',parentid:'17',id:'103',image:'',data:''},
@@ -74,11 +75,21 @@ Page({
               that.setData({tel_list:res.data})
             })
   },
+  switchType(e){
+    var that = this
+    var type = e.currentTarget.dataset.type
+    var tel_list = that.data.tel_list
+    var idArray = that.data.idArray
+    console.log(idArray)
+    that.son_ground(idArray[type])
+  },
   query(e){
     var that = this
+    console.log('e',e)
       var url = 'https://www.korjo.cn/TimeApi/GetYellowUserTypeList'
       var type = 'GET'
       var dataJson = {userid:e.userid,parentid:e.parentid}
+      var tel_list = that.data.tel_list
 
       $.req(url,type,dataJson,function(res){
         if(res.data.length!=0){
@@ -88,8 +99,9 @@ Page({
           
           $.each(that.data.class_ground,(i,v) => {
             idArray.push(v.id)
-            console.log('idArray',idArray.length)
+            console.log('idArray',idArray)
             })
+          that.setData({idArray})
           that.son_ground(idArray[0])
           // var tel_dataJson = {typeid:103}
           // for(var i = 0;i<idArray.length;i++){
@@ -98,7 +110,16 @@ Page({
           // }
 
           }else{
-            that.setData({class:true})
+            var url2 = 'https://www.korjo.cn/TimeApi/GetBusinessPhoneListByID'
+            var type2 = 'GET'
+            var dataJson2 = {typeid:e.parentid}
+            $.req(url2,type2,dataJson2,function(res){
+              // if(){}
+              tel_list = res.data
+              that.setData({tel_list})
+              console.log('get',res)
+            })
+            that.setData({class:true,topTitle:e.yellow_type})
 
           }
       })
@@ -109,7 +130,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    if(options){
+    if(options.userid){
+      console.log('userid',options)
       that.query(options)
     }
 

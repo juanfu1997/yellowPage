@@ -29,13 +29,13 @@ Page({
   },
   go_tel_list(e){
     var that = this
-    var parentid = e.currentTarget.dataset.id
+    var parentid = e.currentTarget.dataset.parentid
     var userid = that.data.current_ground.userid
-
-    console.log(userid,parentid)
+    var yellow_type = e.currentTarget.dataset.yellow_type
+    console.log('userid',userid,parentid)
     // var parentid = that.class_data[index].id
     wx.navigateTo({
-      url: '/pages/tel_list/tel_list?userid='+userid+'&parentid='+parentid
+      url: '/pages/tel_list/tel_list?userid='+userid+'&parentid='+parentid+'&yellow_type='+yellow_type
     })
 
     console.log(e)

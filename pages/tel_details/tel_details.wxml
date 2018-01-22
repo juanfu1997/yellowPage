@@ -19,23 +19,34 @@
 			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
 			<view class="details_text">{{tel_details.customjson}}</view>
 		</view>
-		<view class="btn_details" wx:if="{{tel_details.wxpublic}}">
+		<view class="btn_details" wx:if="{{!tel_details.wxpublic}}" catchtap="followWechat">
 			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
-			<view class="details_text">{{tel_details.wxpublic}}</view>
+			<button open-type="contact" style="height:1.4em;" session-from="{{a}}">
+			<view class="details_text">{{tel_details.wxpublic}}1</view></button>
 		</view>
 		<view class="btn_details" wx:if="{{tel_details.hours}}">
 			<image class="details_img" mode="widthFix" src="{{img}}call.png"></image>
-			<view class="details_text">{{tel_details.hours}}</view>
+			<view class="details_text">{{tel_details.hours}}8:00-12:00</view>
+		</view>
+		<view class="btn_share">
+			<veiw class="share" wx:for="{{tool}}">
+				<image mode="widthFix" src="{{img}}{{item.img}}"></image>
+				<view>{{item.txt}}</view>
+			</veiw>
+			<!-- <veiw class="error">
+				<image></image>
+				<view></view>
+			</veiw> -->
 		</view>
 	</view>
 	<view class="tab_store">
 		<view class="top_tab">
-			<viwe class="tab">门店介绍</viwe>
-			<view class="tab">门店图片</view>
-			<view class="tab">门店视频</view>
+			<viwe class="{{showTab[0].class}}" data-index="0" wx:if="{{!tel_details.intro}}" catchtap="showTab">门店介绍</viwe>
+			<view class="{{showTab[1].class}}" data-index="1" wx:if="{{!tel_details.image}}" catchtap="showTab">门店图片</view>
+			<view class="{{showTab[2].class}}" data-index="2" wx:if="{{tel_details.video}}" catchtap="showTab">门店视频</view>
 		</view>
-		<view class="store_details">555555555555555555555555555555555555555555</view>
-		<view class="store_details"></view>
-		<view class="store_details"></view>
+		<view class="store_details" hidden="{{showTab[0].show}}">555555555555555555555555555555555555555555</view>
+		<view class="store_details" hidden="{{showTab[1].show}}">6666</view>
+		<view class="store_details" hidden="{{showTab[2].show}}">777</view>
 	</view>
 </view>

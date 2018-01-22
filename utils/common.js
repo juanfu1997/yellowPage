@@ -185,8 +185,9 @@ function param(json) {
 
 function goPage(e) {
     const data = e.currentTarget.dataset
+
     wx.navigateTo({
-        url: `/pages/${data.page}/${data.page}`
+        url: `/pages/${data.page}/${data.page}?${data.typeid}=`+data.typeid+`&${data.index}=`+data.index
     })
 }
 //上传资源获得其链接 资源类型:image audio movie
